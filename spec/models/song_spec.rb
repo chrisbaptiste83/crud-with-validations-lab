@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Song, type: :model do
   let(:valid_attributes) do
     {
-      title: "Talisman",
+      name: "Talisman",
       artist_name: "Air",
       release_year: 2007,
       released: true,
@@ -11,7 +11,7 @@ RSpec.describe Song, type: :model do
     }
   end
 
-  let(:missing_title) { valid_attributes.except(:title) }
+  let(:missing_name) { valid_attributes.except(:name) }
   let(:missing_release_year) { valid_attributes.except(:release_year) }
   let(:unreleased) { missing_release_year.merge(released: false) }
   let(:future_release_year) { valid_attributes.merge(release_year: Date.today.year + 1) }
@@ -21,7 +21,7 @@ RSpec.describe Song, type: :model do
   end
 
   it "is invalid without title" do
-    expect(Song.new(missing_title)).to be_invalid
+    expect(Song.new(missing_name)).to be_invalid
   end
 
   it "is invalid without release year when released is true" do

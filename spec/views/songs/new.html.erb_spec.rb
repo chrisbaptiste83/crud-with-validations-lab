@@ -4,7 +4,7 @@ RSpec.describe 'songs/new', type: :feature do
 
     form = find('form')
 
-    expect(form.find('input#song_title')[:name]).to eq('song[title]')
+    expect(form.find('input#song_name')[:name]).to eq('song[name]')
     expect(form.find('input#song_release_year')[:name]).to eq('song[release_year]')
     expect(form.find('input#song_released')[:name]).to eq('song[released]')
     expect(form.find('input#song_genre')[:name]).to eq('song[genre]')

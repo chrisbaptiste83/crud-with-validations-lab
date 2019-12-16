@@ -1,7 +1,7 @@
 RSpec.describe 'songs/edit', type: :feature do
   let(:song_attributes) do
     {
-      title: 'Rhythms Which I Played',
+      name: 'Rhythms Which I Played',
       release_year: 2000,
       released: true,
       genre: 'Normcore',
@@ -17,7 +17,7 @@ RSpec.describe 'songs/edit', type: :feature do
     form = find('form')
 
     expect(form[:action]).to eq(song_path(song))
-    expect(form.find('input#song_title').value).to eq(song.title)
+    expect(form.find('input#song_name').value).to eq(song.name)
     expect(form.find('input#song_release_year').value).to eq(song.release_year.to_s)
     expect(form.find('input#song_released')).to be_checked
     expect(form.find('input#song_genre').value).to eq(song.genre)

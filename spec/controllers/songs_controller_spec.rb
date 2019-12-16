@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SongsController, type: :controller do
   let(:valid_attributes) do
     {
-      title: "Talisman",
+      name: "Talisman",
       artist_name: "Air",
       release_year: 2007,
       released: true,
@@ -13,7 +13,7 @@ RSpec.describe SongsController, type: :controller do
 
   let(:invalid_attributes) do
     {
-      title: nil,
+      name: nil,
       artist_name: nil,
       release_year: nil,
       released: true
@@ -70,7 +70,7 @@ RSpec.describe SongsController, type: :controller do
 
   context "updating a song with valid data" do
     let(:new_attributes) do
-      { title: "Moon Safari" }
+      { name: "Moon Safari" }
     end
     let(:song) { Song.create!(valid_attributes) }
 
@@ -80,7 +80,7 @@ RSpec.describe SongsController, type: :controller do
 
     it "updates the song" do
       song.reload
-      expect(song.title).to eq("Moon Safari")
+      expect(song.name).to eq("Moon Safari")
     end
 
     it "redirects to the song" do
@@ -95,7 +95,7 @@ RSpec.describe SongsController, type: :controller do
     end
 
     it "does not persist changes" do
-      expect(song.title).to eq("Talisman")
+      expect(song.name).to eq("Talisman")
     end
 
     it "re-renders the 'edit' template" do
